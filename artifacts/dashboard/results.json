@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "real_qemu",
+    "fixture_loop",
+    "chinese_final",
+    "file_query",
+    "worker_pause",
+    "refresh_restore",
+    "disconnect",
+    "mobile_width",
+    "context_scenario",
+    "heartbeat_ipc_scenario",
+    "export_replay",
+    "no_js_errors"
+  ],
+  "errors": []
+}

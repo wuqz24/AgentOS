@@ -1,0 +1,4 @@
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+Kernel features: agent-test
+QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+Copyright (c) 2003-2023 Fabrice Bellard and the QEMU Project developers

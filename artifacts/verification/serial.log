@@ -1,0 +1,149 @@
+[rustsbi] RustSBI version 0.3.1, adapting to RISC-V SBI v1.0.0
+.______       __    __      _______.___________.  _______..______   __
+|   _  \     |  |  |  |    /       |           | /       ||   _  \ |  |
+|  |_)  |    |  |  |  |   |   (----`---|  |----`|   (----`|  |_)  ||  |
+|      /     |  |  |  |    \   \       |  |      \   \    |   _  < |  |
+|  |\  \----.|  `--'  |.----)   |      |  |  .----)   |   |  |_)  ||  |
+| _| `._____| \______/ |_______/       |__|  |_______/    |______/ |__|
+[rustsbi] Implementation     : RustSBI-QEMU Version 0.2.0-alpha.2
+[rustsbi] Platform Name      : riscv-virtio,qemu
+[rustsbi] Platform SMP       : 1
+[rustsbi] Platform Memory    : 0x80000000..0x88000000
+[rustsbi] Boot HART          : 0
+[rustsbi] Device Tree Region : 0x87e00000..0x87e010f6
+[rustsbi] Firmware Address   : 0x80000000
+[rustsbi] Supervisor Address : 0x80200000
+[rustsbi] pmp01: 0x00000000..0x80000000 (-wr)
+[rustsbi] pmp02: 0x80000000..0x80200000 (---)
+[rustsbi] pmp03: 0x80200000..0x88000000 (xwr)
+[rustsbi] pmp04: 0x88000000..0x00000000 (-wr)
+[34m[ INFO] CLOCK_FREQ from device tree: 10000000[0m
+[34m[ INFO] KERN: init gpu[0m
+[34m[ INFO] Device features EDID | NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] Config: Config { events_read: ReadOnly(Volatile(0)), num_scanouts: Volatile(1) }[0m
+[34m[ INFO] => RespDisplayInfo { header: CtrlHeader { hdr_type: OkDisplayInfo, flags: 0, fence_id: 0, ctx_id: 0, _padding: 0 }, rect: Rect { x: 0, y: 0, width: 1280, height: 800 }, enabled: 1, flags: 0 }[0m
+[34m[ INFO] KERN: init keyboard[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init mouse[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init trap[0m
+/**** APPS ****
+[34m[ INFO] device features: SEG_MAX | GEOMETRY | BLK_SIZE | SCSI | FLUSH | TOPOLOGY | CONFIG_WCE | DISCARD | WRITE_ZEROES | NOTIFY_ON_EMPTY | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] config: BlkConfig { capacity: Volatile(65536), size_max: Volatile(0), seg_max: Volatile(254), cylinders: Volatile(65), heads: Volatile(16), sectors: Volatile(63), blk_size: Volatile(512), physical_block_exp: Volatile(0), alignment_offset: Volatile(0), min_io_size: Volatile(0), opt_io_size: Volatile(0) }[0m
+[34m[ INFO] found a block device of size 32768KB[0m
+agent_tests
+race_adder_arg
+agent_worker
+inputdev_event
+agent_file_tests
+adder_simple_spin
+initproc
+agent_probe
+agent_bench
+priv_inst
+stackful_coroutine
+forktest
+usertests
+adder_peterson_spin
+barrier_fail
+adder_peterson_yield
+huge_write_mt
+peterson
+sleep_simple
+gui_snake
+filetest_simple
+agent_admin
+eisenberg
+store_fault
+fantastic_text
+priv_csr
+exit
+adder_mutex_spin
+condsync_condvar
+forktest_simple
+gui_move
+sync_sem
+adder
+cmdline_args
+user_shell
+huge_write
+adder_mutex_blocking
+threads
+gui_tri
+stackless_coroutine
+forktree
+adder_atomic
+forktest2
+phil_din_mutex
+pipetest
+pipe_large_test
+adder_simple_yield
+matrix
+agent_bridge
+agent_demo
+barrier_condvar
+tcp_simplehttp
+infloop
+run_pipe_test
+stack_overflow
+until_timeout
+threads_arg
+yield
+agent_scenarios
+hello_world
+random_num
+agent_loop_tests
+cat
+mpsc_sem
+condsync_sem
+udp
+count_lines
+sleep
+gui_shape
+**************/
+Rust user shell
+>> agent_tests
+[PASS] A01 A02 registration and bounded mapping
+[PASS] T01 T02 T03 T06 discovery, typed tools and errors
+[PASS] A04 T04 canonical, cross-page and atomic output validation
+[PASS] C01 C02 C03 C04 history, FIFO, direct reads and rollback
+[PASS] A06 fork independent Context and instance
+[PASS] A06 exec cleared Agent state
+[kernel] Segmentation Fault, SIGSEGV=11
+[PASS] A04 control page rejects direct user writes
+[PASS] A05 allocation failures rolled back at every physical allocation
+[PASS] A05 existing mapping collision preserved and safely rejected
+[PASS] C05 10000 appends with constant physical pages
+[PASS] A07 100 Agent fork/exit/reap cycles with constant physical pages
+[PASS] A07 100 create/finish cycles with reclaimed page tables
+Hello world from user mode program!
+file_test passed!
+sys_wait without child process test passed!
+parent start, pid = 4!
+ready waiting on parent process!
+hello child process!
+child process pid = 5, exit code = 100
+into sleep test!
+current time_msec = 900
+time_msec = 1010 after sleeping 100 ticks, delta = 110ms!
+r_sleep passed!
+Second want to continue,but need to wait A=1
+Second: A is 0
+First work, Change A --> 1 and wakeup Second
+A is 1, Second can work now
+test_condvar passed!
+[PASS] A03 R01 ordinary process, file, fork, sleep and condition-variable regressions
+[PASS] agent_tests
+>> agent_loop_tests
+[PASS] T05 cross-domain IPC permission denied
+[PASS] L01 L02 heartbeat, dynamic period, stop and timeout
+[PASS] L03 T05 bounded IPC, instance validation and watch/unwatch
+[PASS] L03 L05 blocked task consumes no runtime; cancel wakes and exit cleans up
+[PASS] L04 L06 1000 IPC round trips with heartbeats and PID reuse
+[PASS] agent_loop_tests
+>> agent_file_tests
+[PASS] F01 F04 attributes overwrite delete, summary keyword and version cache invalidation
+[PASS] F02 F03 AND results, pagination, empty results and index-scan equality
+[PASS] F05 protected journal and invalid attributes
+[PASS] agent_file_tests
+>> qemu-system-riscv64: terminating on signal 15 from pid 1842 (python3)

@@ -1,0 +1,20 @@
+test_config_and_local_secret (test_host.ConfigTests.test_config_and_local_secret) ... ok
+test_missing_and_bad_url (test_host.ConfigTests.test_missing_and_bad_url) ... ok
+test_bounded_typed_args (test_host.ModelTests.test_bounded_typed_args) ... ok
+test_fixture_is_explicit (test_host.ModelTests.test_fixture_is_explicit) ... ok
+test_invalid_final_unknown_tool_malformed (test_host.ModelTests.test_invalid_final_unknown_tool_malformed) ... ok
+test_schema_required_types (test_host.ModelTests.test_schema_required_types) ... ok
+test_timeout_has_no_fallback (test_host.ModelTests.test_timeout_has_no_fallback) ... ok
+test_tool_result_association_and_finish (test_host.ModelTests.test_tool_result_association_and_finish) ... ok
+test_bad_oversize_then_recovery (test_host.ProtocolTests.test_bad_oversize_then_recovery) ... ok
+test_multiple_and_command_limit (test_host.ProtocolTests.test_multiple_and_command_limit) ... ok
+test_utf8_every_boundary_and_boot_logs (test_host.ProtocolTests.test_utf8_every_boundary_and_boot_logs) ... ok
+test_body_limits_and_paths (test_http.HttpBoundaryTests.test_body_limits_and_paths) ... ok
+test_event_storage_is_bounded (test_http.HttpBoundaryTests.test_event_storage_is_bounded) ... ok
+test_host_and_origin (test_http.HttpBoundaryTests.test_host_and_origin) ... ok
+test_state_has_no_credentials (test_http.HttpBoundaryTests.test_state_has_no_credentials) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.618s
+
+OK

@@ -1,0 +1,1 @@
+{"passed": true, "boots": ["verify", "corrupt", "recover", "verify"], "scope": "normal restart, checksum tail detection, checkpoint recovery"}

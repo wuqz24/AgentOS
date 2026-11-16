@@ -1,0 +1,468 @@
+[rustsbi] RustSBI version 0.3.1, adapting to RISC-V SBI v1.0.0
+.______       __    __      _______.___________.  _______..______   __
+|   _  \     |  |  |  |    /       |           | /       ||   _  \ |  |
+|  |_)  |    |  |  |  |   |   (----`---|  |----`|   (----`|  |_)  ||  |
+|      /     |  |  |  |    \   \       |  |      \   \    |   _  < |  |
+|  |\  \----.|  `--'  |.----)   |      |  |  .----)   |   |  |_)  ||  |
+| _| `._____| \______/ |_______/       |__|  |_______/    |______/ |__|
+[rustsbi] Implementation     : RustSBI-QEMU Version 0.2.0-alpha.2
+[rustsbi] Platform Name      : riscv-virtio,qemu
+[rustsbi] Platform SMP       : 1
+[rustsbi] Platform Memory    : 0x80000000..0x88000000
+[rustsbi] Boot HART          : 0
+[rustsbi] Device Tree Region : 0x87e00000..0x87e010f6
+[rustsbi] Firmware Address   : 0x80000000
+[rustsbi] Supervisor Address : 0x80200000
+[rustsbi] pmp01: 0x00000000..0x80000000 (-wr)
+[rustsbi] pmp02: 0x80000000..0x80200000 (---)
+[rustsbi] pmp03: 0x80200000..0x88000000 (xwr)
+[rustsbi] pmp04: 0x88000000..0x00000000 (-wr)
+[34m[ INFO] CLOCK_FREQ from device tree: 10000000[0m
+[34m[ INFO] KERN: init gpu[0m
+[34m[ INFO] Device features EDID | NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] Config: Config { events_read: ReadOnly(Volatile(0)), num_scanouts: Volatile(1) }[0m
+[34m[ INFO] => RespDisplayInfo { header: CtrlHeader { hdr_type: OkDisplayInfo, flags: 0, fence_id: 0, ctx_id: 0, _padding: 0 }, rect: Rect { x: 0, y: 0, width: 1280, height: 800 }, enabled: 1, flags: 0 }[0m
+[34m[ INFO] KERN: init keyboard[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init mouse[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init trap[0m
+/**** APPS ****
+[34m[ INFO] device features: SEG_MAX | GEOMETRY | BLK_SIZE | SCSI | FLUSH | TOPOLOGY | CONFIG_WCE | DISCARD | WRITE_ZEROES | NOTIFY_ON_EMPTY | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] config: BlkConfig { capacity: Volatile(65536), size_max: Volatile(0), seg_max: Volatile(254), cylinders: Volatile(65), heads: Volatile(16), sectors: Volatile(63), blk_size: Volatile(512), physical_block_exp: Volatile(0), alignment_offset: Volatile(0), min_io_size: Volatile(0), opt_io_size: Volatile(0) }[0m
+[34m[ INFO] found a block device of size 32768KB[0m
+agent_tests
+race_adder_arg
+agent_worker
+inputdev_event
+agent_file_tests
+adder_simple_spin
+initproc
+agent_probe
+agent_bench
+priv_inst
+stackful_coroutine
+forktest
+usertests
+adder_peterson_spin
+barrier_fail
+adder_peterson_yield
+huge_write_mt
+peterson
+sleep_simple
+gui_snake
+filetest_simple
+agent_admin
+eisenberg
+store_fault
+fantastic_text
+priv_csr
+exit
+adder_mutex_spin
+condsync_condvar
+forktest_simple
+gui_move
+sync_sem
+adder
+cmdline_args
+user_shell
+huge_write
+adder_mutex_blocking
+threads
+gui_tri
+stackless_coroutine
+forktree
+adder_atomic
+forktest2
+phil_din_mutex
+pipetest
+pipe_large_test
+adder_simple_yield
+matrix
+agent_bridge
+agent_demo
+barrier_condvar
+tcp_simplehttp
+infloop
+run_pipe_test
+stack_overflow
+until_timeout
+threads_arg
+yield
+agent_scenarios
+hello_world
+random_num
+agent_loop_tests
+cat
+mpsc_sem
+condsync_sem
+udp
+count_lines
+sleep
+gui_shape
+**************/
+Rust user shell
+>> agent_file_tests
+[PASS] F01 F04 attributes overwrite delete, summary keyword and version cache invalidation
+[PASS] F02 F03 AND results, pagination, empty results and index-scan equality
+[PASS] F05 protected journal and invalid attributes
+[PASS] agent_file_tests
+>> agent_bench
+@BENCH {"clock_hz":10000000,"experiment":"environment","samples":11,"single_cpu":true}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":0,"ticks":5551}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":0,"ticks":144009}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":1,"ticks":146128}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":1,"ticks":5094}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":2,"ticks":4791}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":2,"ticks":147877}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":3,"ticks":144864}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":3,"ticks":4917}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":4,"ticks":4749}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":4,"ticks":143296}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":5,"ticks":142563}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":5,"ticks":4875}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":6,"ticks":4917}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":6,"ticks":142795}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":7,"ticks":145990}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":7,"ticks":6132}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":8,"ticks":4581}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":8,"ticks":141579}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":9,"ticks":141158}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":9,"ticks":4839}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":4,"sample":10,"ticks":5117}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":4,"sample":10,"ticks":153647}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":0,"ticks":15503}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":0,"ticks":206666}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":1,"ticks":219017}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":1,"ticks":16851}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":2,"ticks":18435}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":2,"ticks":207533}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":3,"ticks":204704}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":3,"ticks":15608}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":4,"ticks":17116}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":4,"ticks":225594}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":5,"ticks":210750}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":5,"ticks":16493}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":6,"ticks":15653}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":6,"ticks":203492}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":7,"ticks":210923}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":7,"ticks":15250}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":8,"ticks":15851}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":8,"ticks":210054}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":9,"ticks":204515}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":9,"ticks":15057}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":16,"sample":10,"ticks":14812}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":16,"sample":10,"ticks":200501}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":0,"ticks":59347}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":0,"ticks":433624}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":1,"ticks":433073}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":1,"ticks":61332}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":2,"ticks":64792}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":2,"ticks":430680}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":3,"ticks":428897}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":3,"ticks":59444}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":4,"ticks":66183}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":4,"ticks":425467}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":5,"ticks":427223}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":5,"ticks":63273}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":6,"ticks":60466}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":6,"ticks":441240}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":7,"ticks":451326}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":7,"ticks":65928}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":8,"ticks":61665}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":8,"ticks":440804}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":9,"ticks":460724}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":9,"ticks":60608}
+@BENCH {"experiment":"context","iterations":1000,"mode":"direct","node_bytes":320,"nodes":64,"sample":10,"ticks":62496}
+@BENCH {"experiment":"context","iterations":1000,"mode":"syscall","node_bytes":320,"nodes":64,"sample":10,"ticks":459698}
+@BENCH {"added":32,"experiment":"index_update","files":32,"ticks":18035214}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":0,"ticks":440}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":0,"ticks":988}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":1,"ticks":916}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":1,"ticks":509}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":2,"ticks":497}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":2,"ticks":1091}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":3,"ticks":884}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":3,"ticks":486}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":4,"ticks":497}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":4,"ticks":971}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":5,"ticks":972}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":5,"ticks":1098}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":6,"ticks":525}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":6,"ticks":2393}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":7,"ticks":942}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":7,"ticks":475}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":8,"ticks":504}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":8,"ticks":931}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":9,"ticks":929}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":9,"ticks":511}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":5,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"index","sample":10,"ticks":505}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":1,"mode":"scan","sample":10,"ticks":1099}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":0,"ticks":967}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":0,"ticks":1266}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":1,"ticks":1217}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":1,"ticks":1008}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":2,"ticks":999}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":2,"ticks":1315}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":3,"ticks":1512}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":3,"ticks":1029}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":4,"ticks":1347}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":4,"ticks":1199}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":5,"ticks":1621}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":5,"ticks":1024}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":6,"ticks":1016}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":6,"ticks":1271}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":7,"ticks":1288}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":7,"ticks":1099}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":8,"ticks":3333}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":8,"ticks":1210}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":9,"ticks":1235}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":9,"ticks":1127}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"index","sample":10,"ticks":1035}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":32,"mode":"scan","sample":10,"ticks":1222}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":0,"ticks":154}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":0,"ticks":697}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":1,"ticks":761}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":1,"ticks":171}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":2,"ticks":185}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":2,"ticks":936}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":3,"ticks":923}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":3,"ticks":185}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":4,"ticks":190}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":4,"ticks":809}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":5,"ticks":815}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":5,"ticks":165}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":6,"ticks":173}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":6,"ticks":752}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":7,"ticks":718}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":7,"ticks":171}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":8,"ticks":188}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":8,"ticks":724}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":9,"ticks":725}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":9,"ticks":172}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"index","sample":10,"ticks":173}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":0,"mode":"scan","sample":10,"ticks":1217}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":0,"ticks":1213}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":0,"ticks":1492}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":1,"ticks":2983}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":1,"ticks":1388}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":2,"ticks":1284}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":2,"ticks":1446}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":3,"ticks":1564}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":3,"ticks":3221}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":4,"ticks":1352}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":4,"ticks":1718}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":5,"ticks":1504}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":5,"ticks":1284}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":6,"ticks":1317}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":6,"ticks":1630}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":7,"ticks":1412}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":7,"ticks":1332}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":8,"ticks":1294}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":8,"ticks":1555}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":9,"ticks":1442}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":9,"ticks":1262}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":32,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"index","sample":10,"ticks":1824}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":65,"experiment":"index","files":32,"index_allocated_bytes":19880,"index_pairs":194,"index_payload_bytes":1626,"matched":16,"mode":"scan","sample":10,"ticks":2180}
+@BENCH {"added":96,"experiment":"index_update","files":128,"ticks":72422667}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":0,"ticks":901}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":0,"ticks":2339}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":1,"ticks":2313}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":1,"ticks":1152}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":2,"ticks":919}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":2,"ticks":2644}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":3,"ticks":2526}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":3,"ticks":972}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":4,"ticks":1268}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":4,"ticks":2520}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":5,"ticks":2468}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":5,"ticks":995}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":6,"ticks":1510}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":6,"ticks":3419}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":7,"ticks":2701}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":7,"ticks":1063}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":8,"ticks":1039}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":8,"ticks":2934}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":9,"ticks":2638}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":9,"ticks":1035}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":8,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"index","sample":10,"ticks":1018}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":4,"mode":"scan","sample":10,"ticks":3181}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":0,"ticks":2078}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":0,"ticks":2391}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":1,"ticks":2085}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":1,"ticks":1899}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":2,"ticks":1868}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":2,"ticks":2105}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":3,"ticks":2095}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":3,"ticks":1931}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":4,"ticks":1905}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":4,"ticks":2117}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":5,"ticks":2219}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":5,"ticks":1994}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":6,"ticks":2173}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":6,"ticks":2113}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":7,"ticks":2081}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":7,"ticks":1896}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":8,"ticks":1932}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":8,"ticks":2038}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":9,"ticks":2183}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":9,"ticks":1934}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":128,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"index","sample":10,"ticks":1888}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":128,"mode":"scan","sample":10,"ticks":2743}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":0,"ticks":133}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":0,"ticks":1982}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":1,"ticks":1679}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":1,"ticks":179}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":2,"ticks":187}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":2,"ticks":1771}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":3,"ticks":1831}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":3,"ticks":174}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":4,"ticks":177}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":4,"ticks":1824}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":5,"ticks":1797}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":5,"ticks":185}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":6,"ticks":238}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":6,"ticks":1949}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":7,"ticks":1700}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":7,"ticks":184}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":8,"ticks":171}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":8,"ticks":1667}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":9,"ticks":1676}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":9,"ticks":213}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"index","sample":10,"ticks":180}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":0,"mode":"scan","sample":10,"ticks":1831}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":0,"ticks":1851}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":0,"ticks":2624}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":1,"ticks":2567}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":1,"ticks":1840}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":2,"ticks":1941}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":2,"ticks":2599}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":3,"ticks":2611}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":3,"ticks":1803}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":4,"ticks":1818}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":4,"ticks":2607}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":5,"ticks":2931}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":5,"ticks":1787}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":6,"ticks":1861}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":6,"ticks":2800}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":7,"ticks":2886}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":7,"ticks":1808}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":8,"ticks":1793}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":8,"ticks":2577}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":9,"ticks":2587}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":9,"ticks":1969}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":80,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"index","sample":10,"ticks":1870}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":161,"experiment":"index","files":128,"index_allocated_bytes":48552,"index_pairs":482,"index_payload_bytes":4218,"matched":64,"mode":"scan","sample":10,"ticks":2741}
+@BENCH {"added":384,"experiment":"index_update","files":512,"ticks":505615041}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":0,"ticks":1241}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":0,"ticks":7361}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":1,"ticks":6898}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":1,"ticks":1194}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":2,"ticks":1182}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":2,"ticks":7239}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":3,"ticks":7070}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":3,"ticks":1182}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":4,"ticks":1484}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":4,"ticks":11326}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":5,"ticks":7497}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":5,"ticks":1213}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":6,"ticks":1519}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":6,"ticks":9245}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":7,"ticks":7010}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":7,"ticks":1651}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":8,"ticks":1313}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":8,"ticks":7389}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":9,"ticks":6958}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":9,"ticks":1210}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":20,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"index","sample":10,"ticks":1218}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"selective","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":16,"mode":"scan","sample":10,"ticks":7610}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":0,"ticks":6190}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":0,"ticks":6064}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":1,"ticks":6489}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":1,"ticks":6096}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":2,"ticks":6122}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":2,"ticks":6519}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":3,"ticks":6350}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":3,"ticks":5975}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":4,"ticks":6120}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":4,"ticks":6224}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":5,"ticks":6548}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":5,"ticks":6071}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":6,"ticks":6001}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":6,"ticks":6215}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":7,"ticks":6374}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":7,"ticks":6240}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":8,"ticks":7175}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":8,"ticks":6613}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":9,"ticks":6308}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":9,"ticks":6094}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":512,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"index","sample":10,"ticks":5881}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"broad","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":512,"mode":"scan","sample":10,"ticks":6280}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":0,"ticks":153}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":0,"ticks":6389}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":1,"ticks":6339}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":1,"ticks":186}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":2,"ticks":176}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":2,"ticks":6563}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":3,"ticks":7381}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":3,"ticks":199}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":4,"ticks":185}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":4,"ticks":6479}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":5,"ticks":6324}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":5,"ticks":175}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":6,"ticks":176}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":6,"ticks":7370}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":7,"ticks":6398}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":7,"ticks":183}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":8,"ticks":175}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":8,"ticks":6292}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":9,"ticks":6365}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":9,"ticks":176}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":0,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"index","sample":10,"ticks":175}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"empty","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":0,"mode":"scan","sample":10,"ticks":6259}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":0,"ticks":4528}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":0,"ticks":8838}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":1,"ticks":9394}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":1,"ticks":4565}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":2,"ticks":4305}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":2,"ticks":9181}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":3,"ticks":8921}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":3,"ticks":4506}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":4,"ticks":4554}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":4,"ticks":9116}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":5,"ticks":8924}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":5,"ticks":4703}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":6,"ticks":4301}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":6,"ticks":8987}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":7,"ticks":9107}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":7,"ticks":4443}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":8,"ticks":4394}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":8,"ticks":8716}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":9,"ticks":9397}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":9,"ticks":4246}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":272,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"index","sample":10,"ticks":4483}
+@BENCH {"cache":"warm summary cache; no query-result cache","case":"and","checked":545,"experiment":"index","files":512,"index_allocated_bytes":165288,"index_pairs":1634,"index_payload_bytes":14586,"matched":256,"mode":"scan","sample":10,"ticks":9044}
+@BENCH {"dispatches":1,"elapsed_ticks":585649,"experiment":"wait","interval_ms":50,"latency_ticks":1862,"mode":"wait","receive_calls":2,"runtime_ticks":33246,"sample":0,"wait_calls":1}
+@BENCH {"dispatches":3,"elapsed_ticks":729201,"experiment":"wait","interval_ms":50,"latency_ticks":1415,"mode":"poll","receive_calls":5967,"runtime_ticks":745707,"sample":0,"wait_calls":0}
+@BENCH {"dispatches":4,"elapsed_ticks":1029001,"experiment":"wait","interval_ms":50,"latency_ticks":1158,"mode":"poll","receive_calls":8331,"runtime_ticks":1046105,"sample":1,"wait_calls":0}
+@BENCH {"dispatches":2,"elapsed_ticks":505148,"experiment":"wait","interval_ms":50,"latency_ticks":1997,"mode":"wait","receive_calls":2,"runtime_ticks":30679,"sample":1,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":507180,"experiment":"wait","interval_ms":50,"latency_ticks":1944,"mode":"wait","receive_calls":2,"runtime_ticks":31197,"sample":2,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":1235505,"experiment":"wait","interval_ms":50,"latency_ticks":1166,"mode":"poll","receive_calls":10205,"runtime_ticks":1253460,"sample":2,"wait_calls":0}
+@BENCH {"dispatches":3,"elapsed_ticks":830527,"experiment":"wait","interval_ms":50,"latency_ticks":1137,"mode":"poll","receive_calls":6751,"runtime_ticks":848717,"sample":3,"wait_calls":0}
+@BENCH {"dispatches":1,"elapsed_ticks":529080,"experiment":"wait","interval_ms":50,"latency_ticks":2099,"mode":"wait","receive_calls":2,"runtime_ticks":22558,"sample":3,"wait_calls":1}
+@BENCH {"dispatches":1,"elapsed_ticks":523158,"experiment":"wait","interval_ms":50,"latency_ticks":2026,"mode":"wait","receive_calls":2,"runtime_ticks":23616,"sample":4,"wait_calls":1}
+@BENCH {"dispatches":4,"elapsed_ticks":729201,"experiment":"wait","interval_ms":50,"latency_ticks":1363,"mode":"poll","receive_calls":5280,"runtime_ticks":745102,"sample":4,"wait_calls":0}
+@BENCH {"dispatches":4,"elapsed_ticks":1418358,"experiment":"wait","interval_ms":50,"latency_ticks":1311,"mode":"poll","receive_calls":10617,"runtime_ticks":1439603,"sample":5,"wait_calls":0}
+@BENCH {"dispatches":1,"elapsed_ticks":521391,"experiment":"wait","interval_ms":50,"latency_ticks":2625,"mode":"wait","receive_calls":2,"runtime_ticks":24514,"sample":5,"wait_calls":1}
+@BENCH {"dispatches":1,"elapsed_ticks":517857,"experiment":"wait","interval_ms":50,"latency_ticks":2417,"mode":"wait","receive_calls":2,"runtime_ticks":25490,"sample":6,"wait_calls":1}
+@BENCH {"dispatches":4,"elapsed_ticks":1125304,"experiment":"wait","interval_ms":50,"latency_ticks":1698,"mode":"poll","receive_calls":8600,"runtime_ticks":1142679,"sample":6,"wait_calls":0}
+@BENCH {"dispatches":5,"elapsed_ticks":825843,"experiment":"wait","interval_ms":50,"latency_ticks":1539,"mode":"poll","receive_calls":6440,"runtime_ticks":843692,"sample":7,"wait_calls":0}
+@BENCH {"dispatches":2,"elapsed_ticks":506658,"experiment":"wait","interval_ms":50,"latency_ticks":2912,"mode":"wait","receive_calls":2,"runtime_ticks":34863,"sample":7,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":600112,"experiment":"wait","interval_ms":50,"latency_ticks":2063,"mode":"wait","receive_calls":2,"runtime_ticks":31616,"sample":8,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":517589,"experiment":"wait","interval_ms":50,"latency_ticks":1411,"mode":"poll","receive_calls":3781,"runtime_ticks":535336,"sample":8,"wait_calls":0}
+@BENCH {"dispatches":2,"elapsed_ticks":925152,"experiment":"wait","interval_ms":50,"latency_ticks":2594,"mode":"poll","receive_calls":6390,"runtime_ticks":945777,"sample":9,"wait_calls":0}
+@BENCH {"dispatches":2,"elapsed_ticks":511373,"experiment":"wait","interval_ms":50,"latency_ticks":3021,"mode":"wait","receive_calls":2,"runtime_ticks":27006,"sample":9,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":499472,"experiment":"wait","interval_ms":50,"latency_ticks":2086,"mode":"wait","receive_calls":2,"runtime_ticks":35547,"sample":10,"wait_calls":1}
+@BENCH {"dispatches":2,"elapsed_ticks":825187,"experiment":"wait","interval_ms":50,"latency_ticks":1748,"mode":"poll","receive_calls":6414,"runtime_ticks":843815,"sample":10,"wait_calls":0}
+[PASS] agent_bench
+>> qemu-system-riscv64: terminating on signal 15 from pid 1832 (python3)

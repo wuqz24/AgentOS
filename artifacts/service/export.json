@@ -1,0 +1,1666 @@
+{
+  "stream_seq": 170,
+  "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+  "connected": false,
+  "mode": "fixture",
+  "model_configured": false,
+  "model_name": "",
+  "tools": [
+    {
+      "description": "Guest process counts, physical frames and clock; no host CPU metrics.",
+      "name": "get_system_status",
+      "params": ""
+    },
+    {
+      "description": "Filter real guest processes; runtime_ticks are cumulative guest clock ticks.",
+      "name": "query_process",
+      "params": "pid:number?,type:text?,status:text?,limit:number?,cursor:number?"
+    },
+    {
+      "description": "Current Agent Context metadata and bounded history window.",
+      "name": "read_context",
+      "params": ""
+    },
+    {
+      "description": "Send a bounded message within this Agent family; instance prevents PID reuse.",
+      "name": "send_message",
+      "params": "target_pid:number,target_instance:number,kind:number?,message:text"
+    },
+    {
+      "description": "Set an attribute on an existing flat file; key <=23 bytes, value <=63 bytes, at most 8 attributes.",
+      "name": "set_file_attr",
+      "params": "path:text,key:text,value:text"
+    },
+    {
+      "description": "Delete an attribute and update the inverted index and persistent journal.",
+      "name": "delete_file_attr",
+      "params": "path:text,key:text"
+    },
+    {
+      "description": "Read all attributes and the stable catalog identity of a file.",
+      "name": "get_file_attrs",
+      "params": "path:text"
+    },
+    {
+      "description": "AND query, e.g. type=log,owner=4. Optional summary keyword. mode=index|scan, limit 1..4, next_cursor pagination.",
+      "name": "query_files",
+      "params": "filter:text,keyword:text?,mode:text?,limit:number?,cursor:number?"
+    },
+    {
+      "description": "Read the first 127 UTF-8 bytes of file content; summary cache invalidates on ordinary writes.",
+      "name": "read_file_summary",
+      "params": "path:text"
+    },
+    {
+      "description": "Attribute catalog capacity, journal checkpoint epoch and detected recovery damage.",
+      "name": "file_index_status",
+      "params": ""
+    }
+  ],
+  "tasks": [
+    {
+      "pid": 4,
+      "instance": 3,
+      "status": "task_final",
+      "goal": "New run has no old task state",
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 58,
+        "head": 4,
+        "length": 4,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 4,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          },
+          {
+            "request": "",
+            "request_id": 12884901892,
+            "result": "{\"capacity\":16,\"data_base\":1073745920,\"evictions\":0,\"generation\":48,\"head\":3,\"length\":3,\"mapped_bytes\":12288,\"next_seq\":3,\"node_bytes\":320}",
+            "seq": 3,
+            "status": 0,
+            "time_ms": 1321,
+            "tool": "read_context"
+          }
+        ],
+        "wakeups": 5
+      },
+      "request_id": 12884901893,
+      "round": 4,
+      "observation": {
+        "context_seq": 3,
+        "name": "read_context",
+        "params": {},
+        "request_id": 12884901892,
+        "result": {
+          "capacity": 16,
+          "data_base": 1073745920,
+          "evictions": 0,
+          "generation": 48,
+          "head": 3,
+          "length": 3,
+          "mapped_bytes": 12288,
+          "next_seq": 3,
+          "node_bytes": 320
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "final": {
+        "complete": true,
+        "context": {
+          "capacity": 16,
+          "control_base": 1073741824,
+          "data_base": 1073745920,
+          "evictions": 0,
+          "generation": 58,
+          "head": 4,
+          "length": 4,
+          "loop_state": 2,
+          "mapped_bytes": 12288,
+          "next_seq": 4,
+          "node_bytes": 320,
+          "nodes": [
+            {
+              "request": "",
+              "request_id": 12884901889,
+              "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+              "seq": 0,
+              "status": 0,
+              "time_ms": 1226,
+              "tool": "get_system_status"
+            },
+            {
+              "request": "limit=6 type=agent ",
+              "request_id": 12884901890,
+              "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+              "seq": 1,
+              "status": 0,
+              "time_ms": 1258,
+              "tool": "query_process"
+            },
+            {
+              "request": "limit=6 type=agent ",
+              "request_id": 12884901891,
+              "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+              "seq": 2,
+              "status": 0,
+              "time_ms": 1290,
+              "tool": "query_process"
+            },
+            {
+              "request": "",
+              "request_id": 12884901892,
+              "result": "{\"capacity\":16,\"data_base\":1073745920,\"evictions\":0,\"generation\":48,\"head\":3,\"length\":3,\"mapped_bytes\":12288,\"next_seq\":3,\"node_bytes\":320}",
+              "seq": 3,
+              "status": 0,
+              "time_ms": 1321,
+              "tool": "read_context"
+            }
+          ],
+          "wakeups": 5
+        },
+        "event": "task_final",
+        "evidence": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "instance": 3,
+        "pid": 4,
+        "text": "确定性链路验证完成。已取得客体系统、进程和 Context 数据；此结果用于接口回归，不代表真实模型诊断。",
+        "time_ms": 1358,
+        "v": 1,
+        "seq": 22,
+        "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+        "host_time": 1792388034.5143113
+      }
+    },
+    {
+      "pid": 4,
+      "instance": 5,
+      "status": "task_error",
+      "goal": "Unexpected guest disconnect",
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 2,
+        "head": 0,
+        "length": 0,
+        "loop_state": 1,
+        "mapped_bytes": 12288,
+        "next_seq": 0,
+        "node_bytes": 320,
+        "nodes": [],
+        "wakeups": 0
+      },
+      "request_id": 21474836481,
+      "round": 0,
+      "final": {
+        "event": "task_error",
+        "source": "host",
+        "error": "QEMU 连接已断开，任务中断。"
+      }
+    }
+  ],
+  "workers": [],
+  "snapshot": {
+    "processes": {
+      "clock_hz": 10000000,
+      "next_cursor": null,
+      "processes": [
+        {
+          "agent": false,
+          "context_len": 0,
+          "dispatches": 12791,
+          "instance": 0,
+          "loop_state": 0,
+          "mapped_data_pages": 46,
+          "name": "initproc",
+          "pid": 1,
+          "runtime_ticks": 4791185,
+          "state": "ready"
+        },
+        {
+          "agent": false,
+          "context_len": 0,
+          "dispatches": 11109,
+          "instance": 0,
+          "loop_state": 0,
+          "mapped_data_pages": 47,
+          "name": "user_shell",
+          "pid": 2,
+          "runtime_ticks": 4190281,
+          "state": "ready"
+        },
+        {
+          "agent": true,
+          "context_len": 0,
+          "dispatches": 1142,
+          "instance": 1,
+          "loop_state": 2,
+          "mapped_data_pages": 75,
+          "name": "agent_bridge",
+          "pid": 3,
+          "runtime_ticks": 1957906,
+          "state": "running"
+        },
+        {
+          "agent": true,
+          "context_len": 0,
+          "dispatches": 0,
+          "instance": 4,
+          "loop_state": 1,
+          "mapped_data_pages": 75,
+          "name": "agent_bridge",
+          "pid": 4,
+          "runtime_ticks": 0,
+          "state": "ready"
+        }
+      ]
+    },
+    "system": {
+      "agents": 2,
+      "blocked_tasks": 0,
+      "clock_hz": 10000000,
+      "page_bytes": 4096,
+      "physical_pages_free": 26653,
+      "physical_pages_total": 28045,
+      "processes": 4,
+      "runnable_tasks": 4,
+      "uptime_ms": 1392
+    },
+    "time_ms": 1394,
+    "host_time": 1792388034.5476077
+  },
+  "events": [
+    {
+      "event": "bridge_ready",
+      "instance": 1,
+      "pid": 3,
+      "time_ms": 696,
+      "tools": [
+        {
+          "description": "Guest process counts, physical frames and clock; no host CPU metrics.",
+          "name": "get_system_status",
+          "params": ""
+        },
+        {
+          "description": "Filter real guest processes; runtime_ticks are cumulative guest clock ticks.",
+          "name": "query_process",
+          "params": "pid:number?,type:text?,status:text?,limit:number?,cursor:number?"
+        },
+        {
+          "description": "Current Agent Context metadata and bounded history window.",
+          "name": "read_context",
+          "params": ""
+        },
+        {
+          "description": "Send a bounded message within this Agent family; instance prevents PID reuse.",
+          "name": "send_message",
+          "params": "target_pid:number,target_instance:number,kind:number?,message:text"
+        },
+        {
+          "description": "Set an attribute on an existing flat file; key <=23 bytes, value <=63 bytes, at most 8 attributes.",
+          "name": "set_file_attr",
+          "params": "path:text,key:text,value:text"
+        },
+        {
+          "description": "Delete an attribute and update the inverted index and persistent journal.",
+          "name": "delete_file_attr",
+          "params": "path:text,key:text"
+        },
+        {
+          "description": "Read all attributes and the stable catalog identity of a file.",
+          "name": "get_file_attrs",
+          "params": "path:text"
+        },
+        {
+          "description": "AND query, e.g. type=log,owner=4. Optional summary keyword. mode=index|scan, limit 1..4, next_cursor pagination.",
+          "name": "query_files",
+          "params": "filter:text,keyword:text?,mode:text?,limit:number?,cursor:number?"
+        },
+        {
+          "description": "Read the first 127 UTF-8 bytes of file content; summary cache invalidates on ordinary writes.",
+          "name": "read_file_summary",
+          "params": "path:text"
+        },
+        {
+          "description": "Attribute catalog capacity, journal checkpoint epoch and detected recovery damage.",
+          "name": "file_index_status",
+          "params": ""
+        }
+      ],
+      "v": 1,
+      "seq": 1,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388033.8525333,
+      "stream_seq": 135
+    },
+    {
+      "event": "session_started",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "mode": "fixture",
+      "stream_seq": 136,
+      "host_time": 1792388033.8535323
+    },
+    {
+      "event": "late_model_result_discarded",
+      "run_id": "agentos-df05546f0662410f90f7bc001a3c0e90",
+      "instance": 14,
+      "stream_seq": 137,
+      "host_time": 1792388033.8535323
+    },
+    {
+      "event": "command_result",
+      "id": 1,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "child_pid": 4
+      },
+      "status": 0,
+      "time_ms": 713,
+      "v": 1,
+      "seq": 2,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388033.8658779,
+      "stream_seq": 138
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 2,
+        "head": 0,
+        "length": 0,
+        "loop_state": 1,
+        "mapped_bytes": 12288,
+        "next_seq": 0,
+        "node_bytes": 320,
+        "nodes": [],
+        "wakeups": 0
+      },
+      "event": "agent_ready",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "pid": 4,
+      "time_ms": 1197,
+      "v": 1,
+      "seq": 3,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.3507807,
+      "stream_seq": 139
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 2,
+        "head": 0,
+        "length": 0,
+        "loop_state": 1,
+        "mapped_bytes": 12288,
+        "next_seq": 0,
+        "node_bytes": 320,
+        "nodes": [],
+        "wakeups": 0
+      },
+      "event": "model_request",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "latest": null,
+      "max_rounds": 6,
+      "pid": 4,
+      "request_id": 12884901889,
+      "round": 0,
+      "time_ms": 1199,
+      "v": 1,
+      "seq": 4,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.351781,
+      "stream_seq": 140
+    },
+    {
+      "event": "model_decision",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 3,
+      "mode": "fixture",
+      "duration_seconds": 0.0,
+      "decision": {
+        "action": "tool",
+        "name": "get_system_status",
+        "params": {},
+        "note": "确定性回归步骤，不是模型决策",
+        "request_id": 12884901889
+      },
+      "stream_seq": 141,
+      "host_time": 1792388034.351781
+    },
+    {
+      "event": "command_result",
+      "id": 2,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "delivered": true
+      },
+      "status": 0,
+      "time_ms": 1221,
+      "v": 1,
+      "seq": 5,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.373235,
+      "stream_seq": 142
+    },
+    {
+      "event": "tool_start",
+      "instance": 3,
+      "name": "get_system_status",
+      "note": "确定性回归步骤，不是模型决策",
+      "params": {},
+      "pid": 4,
+      "request_id": 12884901889,
+      "time_ms": 1223,
+      "v": 1,
+      "seq": 6,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.3765998,
+      "stream_seq": 143
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 14,
+        "head": 1,
+        "length": 1,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 1,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          }
+        ],
+        "wakeups": 1
+      },
+      "elapsed_ticks": 21101,
+      "event": "tool_result",
+      "instance": 3,
+      "observation": {
+        "context_seq": 0,
+        "name": "get_system_status",
+        "params": {},
+        "request_id": 12884901889,
+        "result": {
+          "agents": 2,
+          "blocked_tasks": 1,
+          "clock_hz": 10000000,
+          "page_bytes": 4096,
+          "physical_pages_free": 26653,
+          "physical_pages_total": 28045,
+          "processes": 4,
+          "runnable_tasks": 3,
+          "uptime_ms": 1225
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "pid": 4,
+      "time_ms": 1228,
+      "v": 1,
+      "seq": 7,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.382148,
+      "stream_seq": 144
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 14,
+        "head": 1,
+        "length": 1,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 1,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          }
+        ],
+        "wakeups": 1
+      },
+      "event": "model_request",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "latest": {
+        "context_seq": 0,
+        "name": "get_system_status",
+        "params": {},
+        "request_id": 12884901889,
+        "result": {
+          "agents": 2,
+          "blocked_tasks": 1,
+          "clock_hz": 10000000,
+          "page_bytes": 4096,
+          "physical_pages_free": 26653,
+          "physical_pages_total": 28045,
+          "processes": 4,
+          "runnable_tasks": 3,
+          "uptime_ms": 1225
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "max_rounds": 6,
+      "pid": 4,
+      "request_id": 12884901890,
+      "round": 1,
+      "time_ms": 1230,
+      "v": 1,
+      "seq": 8,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.3841488,
+      "stream_seq": 145
+    },
+    {
+      "event": "model_decision",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 3,
+      "mode": "fixture",
+      "duration_seconds": 0.0,
+      "decision": {
+        "action": "tool",
+        "name": "query_process",
+        "params": {
+          "type": "agent",
+          "limit": 6
+        },
+        "note": "确定性回归步骤，不是模型决策",
+        "request_id": 12884901890
+      },
+      "stream_seq": 146,
+      "host_time": 1792388034.3846538
+    },
+    {
+      "event": "command_result",
+      "id": 3,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "delivered": true
+      },
+      "status": 0,
+      "time_ms": 1255,
+      "v": 1,
+      "seq": 9,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4070084,
+      "stream_seq": 147
+    },
+    {
+      "event": "tool_start",
+      "instance": 3,
+      "name": "query_process",
+      "note": "确定性回归步骤，不是模型决策",
+      "params": {
+        "limit": 6,
+        "type": "agent"
+      },
+      "pid": 4,
+      "request_id": 12884901890,
+      "time_ms": 1256,
+      "v": 1,
+      "seq": 10,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4070084,
+      "stream_seq": 148
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 26,
+        "head": 2,
+        "length": 2,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 2,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          }
+        ],
+        "wakeups": 2
+      },
+      "elapsed_ticks": 22517,
+      "event": "tool_result",
+      "instance": 3,
+      "observation": {
+        "context_seq": 1,
+        "name": "query_process",
+        "params": {
+          "limit": 6,
+          "type": "agent"
+        },
+        "request_id": 12884901890,
+        "result": {
+          "clock_hz": 10000000,
+          "next_cursor": null,
+          "processes": [
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 1135,
+              "instance": 1,
+              "loop_state": 1,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 3,
+              "runtime_ticks": 1054579,
+              "state": "blocked"
+            },
+            {
+              "agent": true,
+              "context_len": 1,
+              "dispatches": 1079,
+              "instance": 3,
+              "loop_state": 2,
+              "mapped_data_pages": 75,
+              "name": "agent_admin",
+              "pid": 4,
+              "runtime_ticks": 620366,
+              "state": "running"
+            }
+          ]
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "pid": 4,
+      "time_ms": 1259,
+      "v": 1,
+      "seq": 11,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4142988,
+      "stream_seq": 149
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 26,
+        "head": 2,
+        "length": 2,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 2,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          }
+        ],
+        "wakeups": 2
+      },
+      "event": "model_request",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "latest": {
+        "context_seq": 1,
+        "name": "query_process",
+        "params": {
+          "limit": 6,
+          "type": "agent"
+        },
+        "request_id": 12884901890,
+        "result": {
+          "clock_hz": 10000000,
+          "next_cursor": null,
+          "processes": [
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 1135,
+              "instance": 1,
+              "loop_state": 1,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 3,
+              "runtime_ticks": 1054579,
+              "state": "blocked"
+            },
+            {
+              "agent": true,
+              "context_len": 1,
+              "dispatches": 1079,
+              "instance": 3,
+              "loop_state": 2,
+              "mapped_data_pages": 75,
+              "name": "agent_admin",
+              "pid": 4,
+              "runtime_ticks": 620366,
+              "state": "running"
+            }
+          ]
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "max_rounds": 6,
+      "pid": 4,
+      "request_id": 12884901891,
+      "round": 2,
+      "time_ms": 1262,
+      "v": 1,
+      "seq": 12,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4178069,
+      "stream_seq": 150
+    },
+    {
+      "event": "model_decision",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 3,
+      "mode": "fixture",
+      "duration_seconds": 0.0,
+      "decision": {
+        "action": "tool",
+        "name": "query_process",
+        "params": {
+          "type": "agent",
+          "limit": 6
+        },
+        "note": "确定性回归步骤，不是模型决策",
+        "request_id": 12884901891
+      },
+      "stream_seq": 151,
+      "host_time": 1792388034.4178069
+    },
+    {
+      "event": "command_result",
+      "id": 4,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "delivered": true
+      },
+      "status": 0,
+      "time_ms": 1289,
+      "v": 1,
+      "seq": 13,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4408886,
+      "stream_seq": 152
+    },
+    {
+      "event": "tool_start",
+      "instance": 3,
+      "name": "query_process",
+      "note": "确定性回归步骤，不是模型决策",
+      "params": {
+        "limit": 6,
+        "type": "agent"
+      },
+      "pid": 4,
+      "request_id": 12884901891,
+      "time_ms": 1289,
+      "v": 1,
+      "seq": 14,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.44189,
+      "stream_seq": 153
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 38,
+        "head": 3,
+        "length": 3,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 3,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          }
+        ],
+        "wakeups": 3
+      },
+      "elapsed_ticks": 2331,
+      "event": "tool_result",
+      "instance": 3,
+      "observation": {
+        "context_seq": 2,
+        "name": "query_process",
+        "params": {
+          "limit": 6,
+          "type": "agent"
+        },
+        "request_id": 12884901891,
+        "result": {
+          "clock_hz": 10000000,
+          "next_cursor": null,
+          "processes": [
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 1137,
+              "instance": 1,
+              "loop_state": 1,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 3,
+              "runtime_ticks": 1276298,
+              "state": "blocked"
+            },
+            {
+              "agent": true,
+              "context_len": 2,
+              "dispatches": 1080,
+              "instance": 3,
+              "loop_state": 2,
+              "mapped_data_pages": 75,
+              "name": "agent_admin",
+              "pid": 4,
+              "runtime_ticks": 708481,
+              "state": "running"
+            }
+          ]
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "pid": 4,
+      "time_ms": 1290,
+      "v": 1,
+      "seq": 15,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4459145,
+      "stream_seq": 154
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 38,
+        "head": 3,
+        "length": 3,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 3,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          }
+        ],
+        "wakeups": 3
+      },
+      "event": "model_request",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "latest": {
+        "context_seq": 2,
+        "name": "query_process",
+        "params": {
+          "limit": 6,
+          "type": "agent"
+        },
+        "request_id": 12884901891,
+        "result": {
+          "clock_hz": 10000000,
+          "next_cursor": null,
+          "processes": [
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 1137,
+              "instance": 1,
+              "loop_state": 1,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 3,
+              "runtime_ticks": 1276298,
+              "state": "blocked"
+            },
+            {
+              "agent": true,
+              "context_len": 2,
+              "dispatches": 1080,
+              "instance": 3,
+              "loop_state": 2,
+              "mapped_data_pages": 75,
+              "name": "agent_admin",
+              "pid": 4,
+              "runtime_ticks": 708481,
+              "state": "running"
+            }
+          ]
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "max_rounds": 6,
+      "pid": 4,
+      "request_id": 12884901892,
+      "round": 3,
+      "time_ms": 1294,
+      "v": 1,
+      "seq": 16,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4509134,
+      "stream_seq": 155
+    },
+    {
+      "event": "model_decision",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 3,
+      "mode": "fixture",
+      "duration_seconds": 0.0,
+      "decision": {
+        "action": "tool",
+        "name": "read_context",
+        "params": {},
+        "note": "确定性回归步骤，不是模型决策",
+        "request_id": 12884901892
+      },
+      "stream_seq": 156,
+      "host_time": 1792388034.4509134
+    },
+    {
+      "event": "command_result",
+      "id": 5,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "delivered": true
+      },
+      "status": 0,
+      "time_ms": 1319,
+      "v": 1,
+      "seq": 17,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.471763,
+      "stream_seq": 157
+    },
+    {
+      "event": "tool_start",
+      "instance": 3,
+      "name": "read_context",
+      "note": "确定性回归步骤，不是模型决策",
+      "params": {},
+      "pid": 4,
+      "request_id": 12884901892,
+      "time_ms": 1320,
+      "v": 1,
+      "seq": 18,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.4727705,
+      "stream_seq": 158
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 50,
+        "head": 4,
+        "length": 4,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 4,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          },
+          {
+            "request": "",
+            "request_id": 12884901892,
+            "result": "{\"capacity\":16,\"data_base\":1073745920,\"evictions\":0,\"generation\":48,\"head\":3,\"length\":3,\"mapped_bytes\":12288,\"next_seq\":3,\"node_bytes\":320}",
+            "seq": 3,
+            "status": 0,
+            "time_ms": 1321,
+            "tool": "read_context"
+          }
+        ],
+        "wakeups": 4
+      },
+      "elapsed_ticks": 8502,
+      "event": "tool_result",
+      "instance": 3,
+      "observation": {
+        "context_seq": 3,
+        "name": "read_context",
+        "params": {},
+        "request_id": 12884901892,
+        "result": {
+          "capacity": 16,
+          "data_base": 1073745920,
+          "evictions": 0,
+          "generation": 48,
+          "head": 3,
+          "length": 3,
+          "mapped_bytes": 12288,
+          "next_seq": 3,
+          "node_bytes": 320
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "pid": 4,
+      "time_ms": 1321,
+      "v": 1,
+      "seq": 19,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.477816,
+      "stream_seq": 159
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 50,
+        "head": 4,
+        "length": 4,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 4,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          },
+          {
+            "request": "",
+            "request_id": 12884901892,
+            "result": "{\"capacity\":16,\"data_base\":1073745920,\"evictions\":0,\"generation\":48,\"head\":3,\"length\":3,\"mapped_bytes\":12288,\"next_seq\":3,\"node_bytes\":320}",
+            "seq": 3,
+            "status": 0,
+            "time_ms": 1321,
+            "tool": "read_context"
+          }
+        ],
+        "wakeups": 4
+      },
+      "event": "model_request",
+      "goal": "New run has no old task state",
+      "instance": 3,
+      "latest": {
+        "context_seq": 3,
+        "name": "read_context",
+        "params": {},
+        "request_id": 12884901892,
+        "result": {
+          "capacity": 16,
+          "data_base": 1073745920,
+          "evictions": 0,
+          "generation": 48,
+          "head": 3,
+          "length": 3,
+          "mapped_bytes": 12288,
+          "next_seq": 3,
+          "node_bytes": 320
+        },
+        "source": "kernel",
+        "status": 0
+      },
+      "max_rounds": 6,
+      "pid": 4,
+      "request_id": 12884901893,
+      "round": 4,
+      "time_ms": 1325,
+      "v": 1,
+      "seq": 20,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.481816,
+      "stream_seq": 160
+    },
+    {
+      "event": "model_decision",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 3,
+      "mode": "fixture",
+      "duration_seconds": 0.0,
+      "decision": {
+        "action": "final",
+        "text": "确定性链路验证完成。已取得客体系统、进程和 Context 数据；此结果用于接口回归，不代表真实模型诊断。",
+        "evidence": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "request_id": 12884901893
+      },
+      "stream_seq": 161,
+      "host_time": 1792388034.481816
+    },
+    {
+      "event": "command_result",
+      "id": 6,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "delivered": true
+      },
+      "status": 0,
+      "time_ms": 1357,
+      "v": 1,
+      "seq": 21,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.5094707,
+      "stream_seq": 162
+    },
+    {
+      "complete": true,
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 58,
+        "head": 4,
+        "length": 4,
+        "loop_state": 2,
+        "mapped_bytes": 12288,
+        "next_seq": 4,
+        "node_bytes": 320,
+        "nodes": [
+          {
+            "request": "",
+            "request_id": 12884901889,
+            "result": "{\"agents\":2,\"blocked_tasks\":1,\"clock_hz\":10000000,\"page_bytes\":4096,\"physical_pages_free\":26653,\"physical_pages_total\":28045,\"processes\":4,\"runnable_tasks\":3,\"",
+            "seq": 0,
+            "status": 0,
+            "time_ms": 1226,
+            "tool": "get_system_status"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901890,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1135,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 1,
+            "status": 0,
+            "time_ms": 1258,
+            "tool": "query_process"
+          },
+          {
+            "request": "limit=6 type=agent ",
+            "request_id": 12884901891,
+            "result": "{\"clock_hz\":10000000,\"next_cursor\":null,\"processes\":[{\"agent\":true,\"context_len\":0,\"dispatches\":1137,\"instance\":1,\"loop_state\":1,\"mapped_data_pages\":75,\"name\":",
+            "seq": 2,
+            "status": 0,
+            "time_ms": 1290,
+            "tool": "query_process"
+          },
+          {
+            "request": "",
+            "request_id": 12884901892,
+            "result": "{\"capacity\":16,\"data_base\":1073745920,\"evictions\":0,\"generation\":48,\"head\":3,\"length\":3,\"mapped_bytes\":12288,\"next_seq\":3,\"node_bytes\":320}",
+            "seq": 3,
+            "status": 0,
+            "time_ms": 1321,
+            "tool": "read_context"
+          }
+        ],
+        "wakeups": 5
+      },
+      "event": "task_final",
+      "evidence": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "instance": 3,
+      "pid": 4,
+      "text": "确定性链路验证完成。已取得客体系统、进程和 Context 数据；此结果用于接口回归，不代表真实模型诊断。",
+      "time_ms": 1358,
+      "v": 1,
+      "seq": 22,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.5143113,
+      "stream_seq": 163
+    },
+    {
+      "event": "command_result",
+      "id": 7,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "child_pid": 4
+      },
+      "status": 0,
+      "time_ms": 1388,
+      "v": 1,
+      "seq": 23,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.5418787,
+      "stream_seq": 164
+    },
+    {
+      "event": "command_result",
+      "id": 8,
+      "instance": 1,
+      "pid": 3,
+      "result": {
+        "processes": {
+          "clock_hz": 10000000,
+          "next_cursor": null,
+          "processes": [
+            {
+              "agent": false,
+              "context_len": 0,
+              "dispatches": 12791,
+              "instance": 0,
+              "loop_state": 0,
+              "mapped_data_pages": 46,
+              "name": "initproc",
+              "pid": 1,
+              "runtime_ticks": 4791185,
+              "state": "ready"
+            },
+            {
+              "agent": false,
+              "context_len": 0,
+              "dispatches": 11109,
+              "instance": 0,
+              "loop_state": 0,
+              "mapped_data_pages": 47,
+              "name": "user_shell",
+              "pid": 2,
+              "runtime_ticks": 4190281,
+              "state": "ready"
+            },
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 1142,
+              "instance": 1,
+              "loop_state": 2,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 3,
+              "runtime_ticks": 1957906,
+              "state": "running"
+            },
+            {
+              "agent": true,
+              "context_len": 0,
+              "dispatches": 0,
+              "instance": 4,
+              "loop_state": 1,
+              "mapped_data_pages": 75,
+              "name": "agent_bridge",
+              "pid": 4,
+              "runtime_ticks": 0,
+              "state": "ready"
+            }
+          ]
+        },
+        "system": {
+          "agents": 2,
+          "blocked_tasks": 0,
+          "clock_hz": 10000000,
+          "page_bytes": 4096,
+          "physical_pages_free": 26653,
+          "physical_pages_total": 28045,
+          "processes": 4,
+          "runnable_tasks": 4,
+          "uptime_ms": 1392
+        }
+      },
+      "status": 0,
+      "time_ms": 1394,
+      "v": 1,
+      "seq": 24,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388034.5476077,
+      "stream_seq": 165
+    },
+    {
+      "event": "snapshot",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "processes": {
+        "clock_hz": 10000000,
+        "next_cursor": null,
+        "processes": [
+          {
+            "agent": false,
+            "context_len": 0,
+            "dispatches": 12791,
+            "instance": 0,
+            "loop_state": 0,
+            "mapped_data_pages": 46,
+            "name": "initproc",
+            "pid": 1,
+            "runtime_ticks": 4791185,
+            "state": "ready"
+          },
+          {
+            "agent": false,
+            "context_len": 0,
+            "dispatches": 11109,
+            "instance": 0,
+            "loop_state": 0,
+            "mapped_data_pages": 47,
+            "name": "user_shell",
+            "pid": 2,
+            "runtime_ticks": 4190281,
+            "state": "ready"
+          },
+          {
+            "agent": true,
+            "context_len": 0,
+            "dispatches": 1142,
+            "instance": 1,
+            "loop_state": 2,
+            "mapped_data_pages": 75,
+            "name": "agent_bridge",
+            "pid": 3,
+            "runtime_ticks": 1957906,
+            "state": "running"
+          },
+          {
+            "agent": true,
+            "context_len": 0,
+            "dispatches": 0,
+            "instance": 4,
+            "loop_state": 1,
+            "mapped_data_pages": 75,
+            "name": "agent_bridge",
+            "pid": 4,
+            "runtime_ticks": 0,
+            "state": "ready"
+          }
+        ]
+      },
+      "system": {
+        "agents": 2,
+        "blocked_tasks": 0,
+        "clock_hz": 10000000,
+        "page_bytes": 4096,
+        "physical_pages_free": 26653,
+        "physical_pages_total": 28045,
+        "processes": 4,
+        "runnable_tasks": 4,
+        "uptime_ms": 1392
+      },
+      "time_ms": 1394,
+      "host_time": 1792388034.5476077,
+      "stream_seq": 166
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 2,
+        "head": 0,
+        "length": 0,
+        "loop_state": 1,
+        "mapped_bytes": 12288,
+        "next_seq": 0,
+        "node_bytes": 320,
+        "nodes": [],
+        "wakeups": 0
+      },
+      "event": "agent_ready",
+      "goal": "Unexpected guest disconnect",
+      "instance": 5,
+      "pid": 4,
+      "time_ms": 1850,
+      "v": 1,
+      "seq": 25,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388035.0038643,
+      "stream_seq": 167
+    },
+    {
+      "context": {
+        "capacity": 16,
+        "control_base": 1073741824,
+        "data_base": 1073745920,
+        "evictions": 0,
+        "generation": 2,
+        "head": 0,
+        "length": 0,
+        "loop_state": 1,
+        "mapped_bytes": 12288,
+        "next_seq": 0,
+        "node_bytes": 320,
+        "nodes": [],
+        "wakeups": 0
+      },
+      "event": "model_request",
+      "goal": "Unexpected guest disconnect",
+      "instance": 5,
+      "latest": null,
+      "max_rounds": 3,
+      "pid": 4,
+      "request_id": 21474836481,
+      "round": 0,
+      "time_ms": 1853,
+      "v": 1,
+      "seq": 26,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388035.0058637,
+      "stream_seq": 168
+    },
+    {
+      "v": 1,
+      "event": "qemu_disconnected",
+      "seq": 27,
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "host_time": 1792388035.2160017,
+      "stream_seq": 169
+    },
+    {
+      "event": "late_model_result_discarded",
+      "run_id": "agentos-bc2f0e3104aa4088a578b3966002a9dc",
+      "instance": 5,
+      "stream_seq": 170,
+      "host_time": 1792388035.2478013
+    }
+  ]
+}

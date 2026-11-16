@@ -1,0 +1,18 @@
+{
+  "mode": "verification",
+  "tests": [
+    {
+      "program": "agent_tests",
+      "passed": true
+    },
+    {
+      "program": "agent_loop_tests",
+      "passed": true
+    },
+    {
+      "program": "agent_file_tests",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

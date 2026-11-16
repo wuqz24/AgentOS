@@ -1,0 +1,10 @@
+{
+  "mode": "verification",
+  "tests": [
+    {
+      "program": "agent_tests",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

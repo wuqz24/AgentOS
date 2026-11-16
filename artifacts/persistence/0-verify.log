@@ -1,0 +1,142 @@
+[rustsbi] RustSBI version 0.3.1, adapting to RISC-V SBI v1.0.0
+.______       __    __      _______.___________.  _______..______   __
+|   _  \     |  |  |  |    /       |           | /       ||   _  \ |  |
+|  |_)  |    |  |  |  |   |   (----`---|  |----`|   (----`|  |_)  ||  |
+|      /     |  |  |  |    \   \       |  |      \   \    |   _  < |  |
+|  |\  \----.|  `--'  |.----)   |      |  |  .----)   |   |  |_)  ||  |
+| _| `._____| \______/ |_______/       |__|  |_______/    |______/ |__|
+[rustsbi] Implementation     : RustSBI-QEMU Version 0.2.0-alpha.2
+[rustsbi] Platform Name      : riscv-virtio,qemu
+[rustsbi] Platform SMP       : 1
+[rustsbi] Platform Memory    : 0x80000000..0x88000000
+[rustsbi] Boot HART          : 0
+[rustsbi] Device Tree Region : 0x87e00000..0x87e010f6
+[rustsbi] Firmware Address   : 0x80000000
+[rustsbi] Supervisor Address : 0x80200000
+[rustsbi] pmp01: 0x00000000..0x80000000 (-wr)
+[rustsbi] pmp02: 0x80000000..0x80200000 (---)
+[rustsbi] pmp03: 0x80200000..0x88000000 (xwr)
+[rustsbi] pmp04: 0x88000000..0x00000000 (-wr)
+[34m[ INFO] CLOCK_FREQ from device tree: 10000000[0m
+[34m[ INFO] KERN: init gpu[0m
+[34m[ INFO] Device features EDID | NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] Config: Config { events_read: ReadOnly(Volatile(0)), num_scanouts: Volatile(1) }[0m
+[34m[ INFO] => RespDisplayInfo { header: CtrlHeader { hdr_type: OkDisplayInfo, flags: 0, fence_id: 0, ctx_id: 0, _padding: 0 }, rect: Rect { x: 0, y: 0, width: 1280, height: 800 }, enabled: 1, flags: 0 }[0m
+[34m[ INFO] KERN: init keyboard[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init mouse[0m
+[34m[ INFO] Device features: NOTIFY_ON_EMPTY | ANY_LAYOUT | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] KERN: init trap[0m
+/**** APPS ****
+[34m[ INFO] device features: SEG_MAX | GEOMETRY | BLK_SIZE | SCSI | FLUSH | TOPOLOGY | CONFIG_WCE | DISCARD | WRITE_ZEROES | NOTIFY_ON_EMPTY | RING_INDIRECT_DESC | RING_EVENT_IDX[0m
+[34m[ INFO] config: BlkConfig { capacity: Volatile(65536), size_max: Volatile(0), seg_max: Volatile(254), cylinders: Volatile(65), heads: Volatile(16), sectors: Volatile(63), blk_size: Volatile(512), physical_block_exp: Volatile(0), alignment_offset: Volatile(0), min_io_size: Volatile(0), opt_io_size: Volatile(0) }[0m
+[34m[ INFO] found a block device of size 32768KB[0m
+agent_tests
+race_adder_arg
+agent_worker
+inputdev_event
+agent_file_tests
+adder_simple_spin
+initproc
+agent_probe
+agent_bench
+priv_inst
+stackful_coroutine
+forktest
+usertests
+adder_peterson_spin
+barrier_fail
+adder_peterson_yield
+huge_write_mt
+peterson
+sleep_simple
+gui_snake
+filetest_simple
+agent_admin
+eisenberg
+store_fault
+fantastic_text
+priv_csr
+exit
+adder_mutex_spin
+condsync_condvar
+forktest_simple
+gui_move
+sync_sem
+adder
+cmdline_args
+user_shell
+huge_write
+adder_mutex_blocking
+threads
+gui_tri
+stackless_coroutine
+forktree
+adder_atomic
+forktest2
+phil_din_mutex
+pipetest
+pipe_large_test
+adder_simple_yield
+matrix
+agent_bridge
+agent_demo
+barrier_condvar
+tcp_simplehttp
+infloop
+run_pipe_test
+stack_overflow
+until_timeout
+threads_arg
+yield
+agent_scenarios
+hello_world
+random_num
+agent_loop_tests
+cat
+mpsc_sem
+condsync_sem
+udp
+count_lines
+sleep
+gui_shape
+filea
+attr-proof
+.agent-meta-b
+attr-00
+attr-01
+attr-02
+attr-03
+attr-04
+attr-05
+attr-06
+attr-07
+attr-08
+attr-09
+attr-10
+attr-11
+attr-12
+attr-13
+attr-14
+attr-15
+attr-16
+attr-17
+attr-18
+attr-19
+attr-20
+attr-21
+attr-22
+attr-23
+attr-24
+attr-25
+attr-26
+attr-27
+attr-28
+attr-29
+attr-30
+attr-31
+**************/
+Rust user shell
+>> agent_file_tests verify
+[PASS] file_persistence verify
+qemu-system-riscv64: terminating on signal 15 from pid 1891 (python3)

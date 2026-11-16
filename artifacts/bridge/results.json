@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "real_kernel_snapshot",
+    "stale_model_response_rejected",
+    "guest_owned_multi_round_loop_context",
+    "evidence_final_and_finish",
+    "command_deduplication",
+    "workload_control_and_cancel",
+    "malformed_deep_oversize_recovery"
+  ],
+  "model": "fixture; no external API",
+  "time": 1792388013.7208166
+}

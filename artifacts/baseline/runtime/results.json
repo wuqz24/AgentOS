@@ -1,0 +1,14 @@
+{
+  "mode": "baseline",
+  "tests": [
+    {
+      "program": "agent_admin",
+      "passed": true
+    },
+    {
+      "program": "agent_probe",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

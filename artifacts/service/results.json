@@ -1,0 +1,1 @@
+{"passed": true, "model": "explicit deterministic fixture", "checks": ["multi_round_context", "evidence_sequence", "workload_state", "snapshot", "export", "context_scenario", "heartbeat_ipc_scenario", "cancel_pending", "discard_late_decision", "recover_after_cancel", "restart_isolation", "old_qemu_terminated", "unexpected_disconnect"]}

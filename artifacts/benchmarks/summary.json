@@ -1,0 +1,1090 @@
+{
+  "clock_hz": 10000000,
+  "p95_method": "nearest rank; 11 samples per group",
+  "groups": [
+    {
+      "experiment": "context",
+      "nodes": 4,
+      "files": null,
+      "case": null,
+      "mode": "direct",
+      "samples": 11,
+      "ticks": {
+        "median": 4917,
+        "p95": 6132,
+        "min": 4581,
+        "max": 6132
+      }
+    },
+    {
+      "experiment": "context",
+      "nodes": 4,
+      "files": null,
+      "case": null,
+      "mode": "syscall",
+      "samples": 11,
+      "ticks": {
+        "median": 144009,
+        "p95": 153647,
+        "min": 141158,
+        "max": 153647
+      }
+    },
+    {
+      "experiment": "context",
+      "nodes": 16,
+      "files": null,
+      "case": null,
+      "mode": "direct",
+      "samples": 11,
+      "ticks": {
+        "median": 15653,
+        "p95": 18435,
+        "min": 14812,
+        "max": 18435
+      }
+    },
+    {
+      "experiment": "context",
+      "nodes": 16,
+      "files": null,
+      "case": null,
+      "mode": "syscall",
+      "samples": 11,
+      "ticks": {
+        "median": 207533,
+        "p95": 225594,
+        "min": 200501,
+        "max": 225594
+      }
+    },
+    {
+      "experiment": "context",
+      "nodes": 64,
+      "files": null,
+      "case": null,
+      "mode": "direct",
+      "samples": 11,
+      "ticks": {
+        "median": 61665,
+        "p95": 66183,
+        "min": 59347,
+        "max": 66183
+      }
+    },
+    {
+      "experiment": "context",
+      "nodes": 64,
+      "files": null,
+      "case": null,
+      "mode": "syscall",
+      "samples": 11,
+      "ticks": {
+        "median": 433624,
+        "p95": 460724,
+        "min": 425467,
+        "max": 460724
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "selective",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 504,
+        "p95": 1098,
+        "min": 440,
+        "max": 1098
+      },
+      "checked": {
+        "median": 5,
+        "p95": 5,
+        "min": 5,
+        "max": 5
+      },
+      "matched": {
+        "median": 1,
+        "p95": 1,
+        "min": 1,
+        "max": 1
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "selective",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 971,
+        "p95": 2393,
+        "min": 884,
+        "max": 2393
+      },
+      "checked": {
+        "median": 65,
+        "p95": 65,
+        "min": 65,
+        "max": 65
+      },
+      "matched": {
+        "median": 1,
+        "p95": 1,
+        "min": 1,
+        "max": 1
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "broad",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1029,
+        "p95": 3333,
+        "min": 967,
+        "max": 3333
+      },
+      "checked": {
+        "median": 32,
+        "p95": 32,
+        "min": 32,
+        "max": 32
+      },
+      "matched": {
+        "median": 32,
+        "p95": 32,
+        "min": 32,
+        "max": 32
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "broad",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 1266,
+        "p95": 1621,
+        "min": 1199,
+        "max": 1621
+      },
+      "checked": {
+        "median": 65,
+        "p95": 65,
+        "min": 65,
+        "max": 65
+      },
+      "matched": {
+        "median": 32,
+        "p95": 32,
+        "min": 32,
+        "max": 32
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "empty",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 173,
+        "p95": 190,
+        "min": 154,
+        "max": 190
+      },
+      "checked": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "empty",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 761,
+        "p95": 1217,
+        "min": 697,
+        "max": 1217
+      },
+      "checked": {
+        "median": 65,
+        "p95": 65,
+        "min": 65,
+        "max": 65
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "and",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1317,
+        "p95": 3221,
+        "min": 1213,
+        "max": 3221
+      },
+      "checked": {
+        "median": 32,
+        "p95": 32,
+        "min": 32,
+        "max": 32
+      },
+      "matched": {
+        "median": 16,
+        "p95": 16,
+        "min": 16,
+        "max": 16
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 32,
+      "case": "and",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 1555,
+        "p95": 2983,
+        "min": 1412,
+        "max": 2983
+      },
+      "checked": {
+        "median": 65,
+        "p95": 65,
+        "min": 65,
+        "max": 65
+      },
+      "matched": {
+        "median": 16,
+        "p95": 16,
+        "min": 16,
+        "max": 16
+      },
+      "index_allocated_bytes": {
+        "median": 19880,
+        "p95": 19880,
+        "min": 19880,
+        "max": 19880
+      },
+      "index_payload_bytes": {
+        "median": 1626,
+        "p95": 1626,
+        "min": 1626,
+        "max": 1626
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "selective",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1035,
+        "p95": 1510,
+        "min": 901,
+        "max": 1510
+      },
+      "checked": {
+        "median": 8,
+        "p95": 8,
+        "min": 8,
+        "max": 8
+      },
+      "matched": {
+        "median": 4,
+        "p95": 4,
+        "min": 4,
+        "max": 4
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "selective",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 2638,
+        "p95": 3419,
+        "min": 2313,
+        "max": 3419
+      },
+      "checked": {
+        "median": 161,
+        "p95": 161,
+        "min": 161,
+        "max": 161
+      },
+      "matched": {
+        "median": 4,
+        "p95": 4,
+        "min": 4,
+        "max": 4
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "broad",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1931,
+        "p95": 2173,
+        "min": 1868,
+        "max": 2173
+      },
+      "checked": {
+        "median": 128,
+        "p95": 128,
+        "min": 128,
+        "max": 128
+      },
+      "matched": {
+        "median": 128,
+        "p95": 128,
+        "min": 128,
+        "max": 128
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "broad",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 2113,
+        "p95": 2743,
+        "min": 2038,
+        "max": 2743
+      },
+      "checked": {
+        "median": 161,
+        "p95": 161,
+        "min": 161,
+        "max": 161
+      },
+      "matched": {
+        "median": 128,
+        "p95": 128,
+        "min": 128,
+        "max": 128
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "empty",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 180,
+        "p95": 238,
+        "min": 133,
+        "max": 238
+      },
+      "checked": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "empty",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 1797,
+        "p95": 1982,
+        "min": 1667,
+        "max": 1982
+      },
+      "checked": {
+        "median": 161,
+        "p95": 161,
+        "min": 161,
+        "max": 161
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "and",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1840,
+        "p95": 1969,
+        "min": 1787,
+        "max": 1969
+      },
+      "checked": {
+        "median": 80,
+        "p95": 80,
+        "min": 80,
+        "max": 80
+      },
+      "matched": {
+        "median": 64,
+        "p95": 64,
+        "min": 64,
+        "max": 64
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 128,
+      "case": "and",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 2611,
+        "p95": 2931,
+        "min": 2567,
+        "max": 2931
+      },
+      "checked": {
+        "median": 161,
+        "p95": 161,
+        "min": 161,
+        "max": 161
+      },
+      "matched": {
+        "median": 64,
+        "p95": 64,
+        "min": 64,
+        "max": 64
+      },
+      "index_allocated_bytes": {
+        "median": 48552,
+        "p95": 48552,
+        "min": 48552,
+        "max": 48552
+      },
+      "index_payload_bytes": {
+        "median": 4218,
+        "p95": 4218,
+        "min": 4218,
+        "max": 4218
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "selective",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 1218,
+        "p95": 1651,
+        "min": 1182,
+        "max": 1651
+      },
+      "checked": {
+        "median": 20,
+        "p95": 20,
+        "min": 20,
+        "max": 20
+      },
+      "matched": {
+        "median": 16,
+        "p95": 16,
+        "min": 16,
+        "max": 16
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "selective",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 7361,
+        "p95": 11326,
+        "min": 6898,
+        "max": 11326
+      },
+      "checked": {
+        "median": 545,
+        "p95": 545,
+        "min": 545,
+        "max": 545
+      },
+      "matched": {
+        "median": 16,
+        "p95": 16,
+        "min": 16,
+        "max": 16
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "broad",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 6096,
+        "p95": 7175,
+        "min": 5881,
+        "max": 7175
+      },
+      "checked": {
+        "median": 512,
+        "p95": 512,
+        "min": 512,
+        "max": 512
+      },
+      "matched": {
+        "median": 512,
+        "p95": 512,
+        "min": 512,
+        "max": 512
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "broad",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 6350,
+        "p95": 6613,
+        "min": 6064,
+        "max": 6613
+      },
+      "checked": {
+        "median": 545,
+        "p95": 545,
+        "min": 545,
+        "max": 545
+      },
+      "matched": {
+        "median": 512,
+        "p95": 512,
+        "min": 512,
+        "max": 512
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "empty",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 176,
+        "p95": 199,
+        "min": 153,
+        "max": 199
+      },
+      "checked": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "empty",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 6389,
+        "p95": 7381,
+        "min": 6259,
+        "max": 7381
+      },
+      "checked": {
+        "median": 545,
+        "p95": 545,
+        "min": 545,
+        "max": 545
+      },
+      "matched": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "and",
+      "mode": "index",
+      "samples": 11,
+      "ticks": {
+        "median": 4483,
+        "p95": 4703,
+        "min": 4246,
+        "max": 4703
+      },
+      "checked": {
+        "median": 272,
+        "p95": 272,
+        "min": 272,
+        "max": 272
+      },
+      "matched": {
+        "median": 256,
+        "p95": 256,
+        "min": 256,
+        "max": 256
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "index",
+      "nodes": null,
+      "files": 512,
+      "case": "and",
+      "mode": "scan",
+      "samples": 11,
+      "ticks": {
+        "median": 9044,
+        "p95": 9397,
+        "min": 8716,
+        "max": 9397
+      },
+      "checked": {
+        "median": 545,
+        "p95": 545,
+        "min": 545,
+        "max": 545
+      },
+      "matched": {
+        "median": 256,
+        "p95": 256,
+        "min": 256,
+        "max": 256
+      },
+      "index_allocated_bytes": {
+        "median": 165288,
+        "p95": 165288,
+        "min": 165288,
+        "max": 165288
+      },
+      "index_payload_bytes": {
+        "median": 14586,
+        "p95": 14586,
+        "min": 14586,
+        "max": 14586
+      }
+    },
+    {
+      "experiment": "wait",
+      "nodes": null,
+      "files": null,
+      "case": null,
+      "mode": "wait",
+      "samples": 11,
+      "runtime_ticks": {
+        "median": 30679,
+        "p95": 35547,
+        "min": 22558,
+        "max": 35547
+      },
+      "elapsed_ticks": {
+        "median": 517857,
+        "p95": 600112,
+        "min": 499472,
+        "max": 600112
+      },
+      "latency_ticks": {
+        "median": 2086,
+        "p95": 3021,
+        "min": 1862,
+        "max": 3021
+      },
+      "receive_calls": {
+        "median": 2,
+        "p95": 2,
+        "min": 2,
+        "max": 2
+      },
+      "wait_calls": {
+        "median": 1,
+        "p95": 1,
+        "min": 1,
+        "max": 1
+      },
+      "dispatches": {
+        "median": 2,
+        "p95": 2,
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "experiment": "wait",
+      "nodes": null,
+      "files": null,
+      "case": null,
+      "mode": "poll",
+      "samples": 11,
+      "runtime_ticks": {
+        "median": 848717,
+        "p95": 1439603,
+        "min": 535336,
+        "max": 1439603
+      },
+      "elapsed_ticks": {
+        "median": 830527,
+        "p95": 1418358,
+        "min": 517589,
+        "max": 1418358
+      },
+      "latency_ticks": {
+        "median": 1411,
+        "p95": 2594,
+        "min": 1137,
+        "max": 2594
+      },
+      "receive_calls": {
+        "median": 6440,
+        "p95": 10617,
+        "min": 3781,
+        "max": 10617
+      },
+      "wait_calls": {
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0
+      },
+      "dispatches": {
+        "median": 3,
+        "p95": 5,
+        "min": 2,
+        "max": 5
+      }
+    }
+  ]
+}

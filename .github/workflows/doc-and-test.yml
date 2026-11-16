@@ -1,0 +1,39 @@
+name: AgentOS verification
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install pinned build toolchain and QEMU
+        run: bash scripts/bootstrap-wsl.sh
+      - name: Verify ABI, filesystem, guest and service
+        run: bash scripts/verify.sh
+      - name: Verify production kernel and measure mechanisms
+        run: bash scripts/verify-production.sh
+      - name: Retain validation evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: agentos-validation
+          retention-days: 14
+          path: |
+            artifacts/build/*.log
+            artifacts/build/*.json
+            artifacts/build/*.txt
+            artifacts/verification/
+            artifacts/persistence/
+            artifacts/production/
+            artifacts/bridge/
+            artifacts/service/
+            artifacts/benchmarks/
+            !artifacts/**/fs.img
+            !artifacts/**/qemu.pid

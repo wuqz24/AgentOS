@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "started": 1792388008.5199382,
+  "external_model_tested": false,
+  "checks": [
+    {
+      "name": "unit",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "bridge",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "service",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "stability",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "browser",
+      "passed": true,
+      "exit_code": 0
+    }
+  ],
+  "finished": 1792388118.6094775
+}
